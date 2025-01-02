@@ -25,10 +25,12 @@ button {
     outline: none;
     background: transparent;
 }
-
-button, input, textarea, select {
+a,
+button,
+input,
+textarea,
+select {
     font-family: inherit;
-    font-size: inherit;
     color: inherit;
 }
 
