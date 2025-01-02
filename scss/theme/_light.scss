@@ -2,8 +2,8 @@
 
 :root {
     --text-color: #1a162e;
-    --icon-filer: brightness(0) saturate(100%) invert(8%) sepia(6%)
-        saturate(7032%) hue-rotate(214deg) brightness(96%) contrast(95%);
+    --icon-filer: brightness(0) saturate(100%) invert(8%) sepia(6%) saturate(7032%) hue-rotate(214deg) brightness(96%)
+        contrast(95%);
 
     --body-bg-color: #f6f6f6;
     --header-bg-color: #eee;
@@ -15,16 +15,36 @@
     --dropdown-bg-color: #fff;
     --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
     --top-menu-border-color: #d2d1d6;
-    
-    //Sidebar 
+
+    //Sidebar
     --sidebar-bg: #fff;
-    --sidebar-shadow: rgba(200, 200, 200, 0.40);;
+    --sidebar-shadow: rgba(200, 200, 200, 0.4);
 
+    //Category item
+    --cate-item-bg: #eee;
+    --cate-item-thumb-bg: #fff;
+    --cate-item-title-color: #000;
 
-    @include abstracts.breakpoint(lg) {
+    // Buttons
+    --filter-btn-color: #6C6C72;
+    --filter-btn-bg: #fff;
+
+    // Product card
+    --product-card-bg: #fff;
+    --product-card-shadow: rgba(237, 237, 246, 0.20);
+
+    // Filter form
+    --filter-form-bg: #fff;
+    --filter-form-shadow: rgba(200, 200, 200, 0.4);
+    --filter-form-tag-bg: #f8f8fb;
+
+    @include abstracts.screen(lg) {
         --header-bg-color: #fff;
-        --header-shadow-color: rgba(237, 237, 246, 0.20);
+        --header-shadow-color: rgba(237, 237, 246, 0.2);
     }
 
-    
+    @include abstracts.screen(md) {
+        --cate-item-bg: #fff;
+    }    
+
 }

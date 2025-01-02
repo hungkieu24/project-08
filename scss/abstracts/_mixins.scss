@@ -8,7 +8,7 @@ $grid-breakpoints: (
     xxl: 1400px,
 );
 
-@mixin breakpoint($screen) {
+@mixin screen($screen) {
     $breakpoint: map.get($grid-breakpoints, $screen );
 
     @if ($breakpoint) {
