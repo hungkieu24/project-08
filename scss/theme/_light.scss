@@ -8,7 +8,7 @@
     --body-bg-color: #f6f6f6;
     --header-bg-color: #eee;
     --footer-bg-color: var(--header-bg-color);
-    
+
     --top-act-group-bg-color: #fff;
     --top-act-group-shadow: rgba(237, 237, 246, 0.2);
     --top-act-group-separate: #ededf6;
@@ -28,23 +28,40 @@
     --cate-item-title-color: #000;
 
     // Buttons
-    --filter-btn-color: #6C6C72;
+    --filter-btn-color: #6c6c72;
     --filter-btn-bg: #fff;
 
     // Product card
     --product-card-bg: #fff;
-    --product-card-shadow: rgba(237, 237, 246, 0.20);
+    --product-card-shadow: rgba(237, 237, 246, 0.2);
 
     // Filter form
     --filter-form-bg: #fff;
     --filter-form-shadow: rgba(200, 200, 200, 0.4);
-    --filter-form-tag-bg: #f8f8fb;
+    --form-tag-bg: #f8f8fb;
 
     // Authentication
     --auth-content-bg: #fff;
 
     // Forms
     --form-placeholder-color: #d2d1d6;
+
+    // Product detail
+    --product-detail-bg: #fff;
+    --product-detail-info-bg: #F6F6F6;
+    --product-detail-info-content-bg: #fff;
+    --product-detail-tag-bg: #ededf6;
+
+
+    // Breadcrumbs
+    --breadcrumbs-bg: #f6f6f6;
+    --breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
+
+    // Search bar 
+    --search-bar-bg: #fff;
+
+    // Review card
+    --review-card-bg: #FAFAFD;
 
     @include abstracts.screen(lg) {
         --header-bg-color: #fff;
@@ -54,6 +71,8 @@
     @include abstracts.screen(md) {
         --cate-item-bg: #fff;
         --auth-intro-bg: #fff;
-    }    
-
+        --breadcrumbs-bg: #fff;
+        --product-detail-bg: #FAFAFD;
+        --product-detail-info-bg: #fff;
+    }
 }

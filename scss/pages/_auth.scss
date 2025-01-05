@@ -40,7 +40,7 @@
         }
 
         &-img {
-            max-width: 100%;
+            width: min(424px, 100%);
         }
 
         &-text {
@@ -111,6 +111,10 @@
             font-size: 1.4rem;
             padding: 0 20px;
         }
+    }
+
+    &__message {
+        margin-top: 30px;
     }
 
     &__form {
