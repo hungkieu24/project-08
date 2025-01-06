@@ -14,6 +14,12 @@ html.dark {
     --top-act-group-shadow: rgba(0, 0, 0, 0.2);
     --top-act-group-separate: #ededf6;
 
+    // Header
+    --header-act-dropdown-bg: #2f3441;
+    --header-act-dropdown-shadow: rgba(23, 28, 40, 0.40);
+    --header-act-dropdown-border-color: #171C28;
+
+
     // Dropdown
     --dropdown-bg-color: #2f3441;
     --dropdown-shadow-color: rgba(23, 28, 40, 0.4);
@@ -69,7 +75,21 @@ html.dark {
     --search-bar-bg: #171c28;
 
     // Review card
-    --review-card-bg: #171C28;
+    --review-card-bg: #171c28;
+
+    // Text content
+    --text-content-hr-bg: #414349;
+
+    // Checkout 
+    --check-out-breadcrumbs-bg: #171C28;
+    --check-out-cart-info-bg: #171C28;
+    --check-out-cart-info-shadow: rgba(23, 28, 40, 0.20);
+    --check-out-border-color: #292E39;
+    --check-out-gift-shadow: rgba(23, 28, 40, 0.20);
+
+    // Modal
+    --modal-bg: #2f3441;
+    --modal-shadow: rgba(23, 28, 40, 0.4);
 
     @include abstracts.screen(lg) {
         --header-shadow-color: rgba(0, 0, 0, 0.2);

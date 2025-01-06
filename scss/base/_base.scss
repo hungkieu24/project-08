@@ -50,23 +50,6 @@ b, strong {
     font-weight: 600;
 }
 
-blockquote {
-    background: rgb(255 183 0 / 10%);
-    padding: 20px;
-    border-left: 3px solid #ffb700;
-    
-    p {
-        margin: 0;
-    }
-}
-
-hr {
-    border: none;
-    height: 1.5px;
-    background: #ebebeb;
-    margin: 50px 0;
-}
-
 .icon {
     filter: var(--icon-filer);
 }

@@ -208,6 +208,7 @@ window.addEventListener("template-loaded", () => {
     });
 });
 
+// Chuyển tab cho prod-tab ở file product-detail.html
 window.addEventListener("template-loaded", () => {
     const tabsSelector = "prod-tab__item";
     const contentsSelector = "prod-tab__content";
