@@ -172,8 +172,22 @@ select {
   border: none;
 }
 
-input {
+input,
+textarea {
   background: transparent;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+textarea:-webkit-autofill:hover,
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-webkit-autofill:hover {
+  -webkit-text-fill-color: var(--text-color);
+  transition: background-color 1s 9999s, color 1s 9999s;
+  caret-color: var(--text-color);
 }
 
 i, em {
@@ -1360,6 +1374,9 @@ b, strong {
   --form-tag-bg: #f8f8fb;
   --auth-content-bg: #fff;
   --form-placeholder-color: #d2d1d6;
+  --form-select-dialog-shadow: rgba($color: #000000, $alpha: 0.15);
+  --form-select-dialog-bg: #fff;
+  --form-option-hover-bg: #ebebeb;
   --product-detail-bg: #fff;
   --product-detail-info-bg: #f6f6f6;
   --product-detail-info-content-bg: #fff;
@@ -1433,6 +1450,9 @@ html.dark {
   --auth-intro-text-color: #b9babe;
   --auth-heading-color: #b9babe;
   --form-placeholder-color: #b9babe;
+  --form-select-dialog-shadow: rgba($color: #fff, $alpha: 0.15);
+  --form-select-dialog-bg: #2f3441;
+  --form-option-hover-bg: #292e39;
   --product-detail-bg: #292e39;
   --product-detail-info-bg: #171c28;
   --product-detail-info-content-bg: transparent;
@@ -2410,7 +2430,7 @@ html.dark {
 }
 .btn--primary {
   color: #171c28;
-  background: #FFB700;
+  background: #ffb700;
 }
 .btn--outline {
   background: transparent;
@@ -2418,6 +2438,10 @@ html.dark {
 }
 .btn--rounded {
   border-radius: 99px;
+}
+.btn--danger {
+  color: #fff;
+  background: #ff5a5a;
 }
 .btn[disabled], .btn--disabled {
   opacity: 0.5;
@@ -2669,6 +2693,17 @@ html.dark {
   display: flex;
   gap: 30px;
 }
+@media (max-width: 767.98px) {
+  .form__row {
+    gap: 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .form__row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
 .form__row > * {
   flex: 1;
 }
@@ -2713,9 +2748,6 @@ html.dark {
   border-radius: 10px;
   border: 1.5px solid #d2d1d6;
 }
-.form__text-area--small, .form__text-input--small {
-  border-radius: 8px;
-}
 .form__text-area:focus-within, .form__text-input:focus-within {
   border-color: #77dae6;
 }
@@ -2724,10 +2756,10 @@ html.dark {
   padding: 12px;
 }
 .form__text-area-input {
-  width: 100%;
   resize: none;
 }
 .form__text-input {
+  position: relative;
   height: 50px;
 }
 @media (max-width: 767.98px) {
@@ -2740,6 +2772,7 @@ html.dark {
 }
 .form__text-area-input, .form__input {
   flex: 1;
+  width: 100%;
   height: 100%;
   font-size: 1.8rem;
   font-style: normal;
@@ -2762,6 +2795,118 @@ html.dark {
   display: none;
   margin-left: 12px;
   animation: shake 0.5s;
+}
+.form__select-dialog {
+  position: absolute;
+  z-index: 1;
+  bottom: 44px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 8px;
+  transition: opacity, visibility, translate;
+  transition-duration: 0.3s;
+  min-width: 230px;
+  max-height: 310px;
+  background: var(--form-select-dialog-bg);
+  padding-bottom: 10px;
+  border: 1px solid #d2d1d6;
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--form-select-dialog-shadow);
+}
+.form__select-dialog.show {
+  opacity: 1;
+  visibility: visible;
+  translate: 0;
+}
+@media (max-width: 575.98px) {
+  .form__select-dialog {
+    position: fixed;
+    max-width: initial;
+    max-height: initial;
+    inset: 0;
+    border-radius: 0;
+  }
+}
+.form__dialog-heading {
+  padding: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+.form__close-dialog {
+  font-size: 3rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 18px;
+  opacity: 0.8;
+}
+.form__search {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 38px;
+  padding: 0 20px;
+  border-bottom: 1px solid #d2d1d6;
+}
+.form__search-input {
+  flex: 1;
+  height: 100%;
+  font-size: 1.6rem;
+}
+.form__search-icon {
+  width: 16px;
+  margin-left: 10px;
+}
+@media (max-width: 991.98px) {
+  .form__search {
+    height: 48px;
+  }
+  .form__search-icon {
+    width: 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .form__search {
+    padding: 0 14px;
+    border: 1px solid #d2d1d6;
+    margin: 10px 30px 0;
+    border-radius: 10px;
+  }
+}
+.form__options-list {
+  flex: 1;
+  margin-top: 10px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+@supports (-webkit-touch-callout: none) {
+  .form__options-list {
+    padding-bottom: 300px;
+  }
+}
+.form__option {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px 20px;
+  font-size: 1.4rem;
+}
+.form__option--current {
+  font-weight: 500;
+  background: rgba(119, 218, 230, 0.5);
+  cursor: context-menu;
+}
+.form__option:not(.form__option--current):hover {
+  cursor: pointer;
+  background: var(--form-option-hover-bg);
+}
+@media (max-width: 991.98px) {
+  .form__option {
+    padding: 18px 30px;
+    font-size: 1.6rem;
+  }
 }
 .form__error {
   text-align: left;
@@ -2926,7 +3071,7 @@ html.dark {
   flex: 1;
   height: 100%;
   padding-left: 15px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 142.857%;
 }
@@ -3125,7 +3270,7 @@ html.dark {
   line-height: 141.667%;
 }
 .modal__body {
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 180px);
   padding-right: 20px;
   overflow-y: auto;
 }
@@ -3133,10 +3278,15 @@ html.dark {
   position: relative;
   z-index: 1;
   width: min(var(--content-width, 800px), 100% - 40px);
-  padding: 30px;
+  padding: 30px 10px 30px 30px;
   border-radius: 20px;
   background: var(--modal-bg);
   box-shadow: 0px 20px 60px 10px var(--modal-shadow);
+}
+@media (max-width: 575.98px) {
+  .modal__content {
+    padding: 20px 0 20px 20px;
+  }
 }
 .modal--small .modal__content {
   --content-width: 400px;
@@ -3156,18 +3306,23 @@ html.dark {
 .modal__bottom {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 50px;
   justify-content: flex-end;
+  padding-right: 20px;
 }
 @media (max-width: 767.98px) {
-  .modal {
-    padding: 20px;
-  }
   .modal__bottom {
     gap: 20px;
   }
+}
+@media (max-width: 575.98px) {
+  .modal__bottom {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 767.98px) {
   .modal__btn {
     flex: 1;
   }
