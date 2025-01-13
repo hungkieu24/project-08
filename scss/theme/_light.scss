@@ -13,7 +13,6 @@
     --top-act-group-shadow: rgba(237, 237, 246, 0.2);
     --top-act-group-separate: #ededf6;
 
-
     // Header
     --header-act-dropdown-bg: #fff;
     --header-act-dropdown-shadow: rgba(200, 200, 200, 0.4);
@@ -74,7 +73,7 @@
     // Text content
     --text-content-hr-bg: #ebebeb;
 
-    // Checkout 
+    // Checkout
     --check-out-breadcrumbs-bg: #fff;
     --check-out-cart-info-bg: #fff;
     --check-out-cart-info-shadow: rgba(237, 237, 246, 0.2);
@@ -86,6 +85,17 @@
     --modal-bg: #fff;
     --modal-shadow: rgba(237, 237, 246, 0.2);
 
+    // Profile
+    --profile-sidebar-bg: #fff;
+    --profile-sidebar-shadow: rgba(237, 237, 246, 0.2);
+    --profile-sidebar-link-hover: #ebebeb;
+
+    // Account info
+    --account-info-bg: #f6f6f6;
+    --account-info-icon-bg: #fff;
+
+    // Separate
+    --separate-color: #d2d1d6;
 
     @include abstracts.screen(lg) {
         --header-bg-color: #fff;
